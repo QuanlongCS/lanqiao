@@ -1,0 +1,130 @@
+问题描述
+　　一棵10层的二叉树，最多包含多少个结点？
+　　注意当一棵二叉树只有一个结点时为一层。
+答案提交
+　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。
+答案 
+
+1023
+
+
+
+问题描述
+　　70044与113148的最大公约数是多少？
+答案提交
+　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。
+答案 
+请输入
+
+#include <stdio.h>
+int main(int argc, char *argv[])
+{	
+int x=70044,y=113148;
+	for(int i=1;i<=70044;i++){
+		if(x%i==0&&0==y%i){
+			printf("%d ",i);
+		}
+		
+	}
+	return 0;
+}
+19000互质
+#include <stdio.h>
+int gcd(int a,int b)
+{
+	int t;
+	if(a<b){
+ 	t=a;a=b;b=t;
+	}
+	while(a%b){
+	t=b;
+ 	b=a%b;
+ 	a=t;
+ 	}
+
+return b;
+}
+int main(int argc, char *argv[]){
+
+	int max=19000;int cnt=0;
+	for(int i=1;i<=max;i++){
+		if(gcd(i,max)==1)++cnt;			 
+	}
+	printf("%d ",cnt);
+	
+	return 0;
+}
+
+
+洁净数
+问题描述
+　　小明非常不喜欢数字 2，包括那些数位上包含数字 2 的数。如果一个数的数位不包含数字 2，小明将它称为洁净数。
+　　请问在整数 1 至 n 中，洁净数有多少个？
+输入格式
+　　输入的第一行包含一个整数 n。
+输出格式
+　　输出一行包含一个整数，表示答案。
+样例输入
+30
+样例输出
+18
+评测用例规模与约定
+　　对于 40% 的评测用例，1 <= n <= 10000。
+　　对于 80% 的评测用例，1 <= n <= 100000。
+　　对于所有评测用例，1 <= n <= 1000000。
+#include <stdio.h>
+int check(int n){
+	int temp;
+		while(n!=0){
+		temp=n%10;
+		if(temp==2)return 0;
+		n/=10;
+	}
+	return 1;
+}
+int main(int argc, char *argv[])
+{
+	int n,cnt=0;
+	scanf("%d",&n);
+	for(int i=1;i<=n;i++){
+		if(check(i))
+			cnt++;	
+	}
+	printf("%d",cnt);
+	return 0;
+}
+
+
+问题描述
+　　给定一个单词，请计算这个单词中有多少个元音字母，多少个辅音字母。
+　　元音字母包括 a, e, i, o, u，共五个，其他均为辅音字母。
+输入格式
+　　输入一行，包含一个单词，单词中只包含小写英文字母。
+输出格式
+　　输出两行，第一行包含一个整数，表示元音字母的数量。
+　　第二行包含一个整数，表示辅音字母的数量。
+样例输入
+lanqiao
+样例输出
+4
+3
+评测用例规模与约定
+　　对于所有评测用例，单词中的字母个数不超过100。
+#include <stdio.h>
+char str[105];
+int main(int argc, char *argv[])
+{	int x=0,y=0,i=0;
+	scanf("%s",&str);
+	while(str[i++] != '\0'){
+		if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
+			 x++;
+		else 
+			if(str[i]!='0')y++;	
+	}
+		
+
+	printf("%d\n",x);
+	printf("%d",y);
+	
+	return 0;
+

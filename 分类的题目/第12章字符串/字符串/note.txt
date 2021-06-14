@@ -1,0 +1,26 @@
+1	未说明size的字符串 可以用while+getchar来输入,终止条件可以为换行符
+	char c;	
+	while((c=getchar()) != '\n'){
+	...
+	}
+
+	1.2或者c++的string
+	string str;
+	cin>>str;
+	cout<<str;
+
+2	执行匹配字符时可以直接对相应匹配值匹配如
+	if(c>='a' && c<='z' || c>='A' && c<='Z')	
+			A++;
+		else if(c>='0' && c<='9')
+			N++;
+		else if(c==' ')
+			S++;
+		else 
+			O++;
+3	string更常用
+
+4	scanf(); gets();要注意在之间插入一个getchar();换行否则scanf不会直接停止
+	程序中getchar()用来读取输入整数后缓存区中的回车；
+
+getline(cin,str);
